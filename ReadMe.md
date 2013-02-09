@@ -4,7 +4,11 @@ This document is intended to be a collection of recommendations to Adobe from th
 
 ## WAT?
 
-ColdFusion has seen continuous changes for going on 11 major versions over the course of the last 18+ years. Unfortunately we haven't always taken time to clean house. Being the first platform to do something means that sometimes your implementation isn't the best. There's a little bit of a mess, and it's time to clean it up. This is your chance to point out a mess you're familiar with and propose a method of better organization.
+ColdFusion has been around for 18 years (which actually makes it younger than Ruby and Python) and while the overall features of the language have kept up with the times such as adding object-oriented programming and ORM the core language has not progressed as fast. 
+
+ColdFusion 9 made giant strides forward with increased cfscript options but two things stand out like sore thumbs; the functions implemented as cfc's (query being a prime example) and documentation which barely exists for script.
+
+Overall the language should embrace a JavaScript syntax and the simplicity of JavaScript libraries such as jQuery.
 
 _Fork, add your two cents, and submit a pull request. No change is too small!_
 
@@ -18,13 +22,13 @@ Add proposals of specific changes to a tag or function's implementation to the a
 
 Add proposals for function/tag renaming, moving, etc to the **Organizational Changes** section.
 
+Add syntax chagnes to the **Syntax Changes** section.
+
 ## Backwards Compatibility
 
-Some of the proposed changes are drastic, and would break a lot of backward compatibility, but _we have to stop thinking of this as a bad thing_. You can't make an omelet without cracking a few eggs.
+ColdFusion should maintain backwards compatibility while improving the lanugage. The documentation and examples provided by Adobe should primarily feature the suggestions in this document.
 
-**Permanent deprecation is also a bad thing.** There have been many things deprecated in CF's history, but it's rare that something is actually removed; Verity not withstanding (but that was a monetarily motivated decision). _It is our hope that deprecations that come as a result of these proposals include a strict EOL._ Promise to support both the old way and the new way for no more than one or two Major versions (e.g. CF 11) but with the next version completely remove support for the deprecated features.
-
-Think of it this way: If you only ever sweep dirt into the corner of your house, the house will never be clean. You've got to pick it up and throw it out at some point.
+Features, including language changes, that have been marked as deprecated need to be removed in the next version permantly.
 
 # Proposals
 
@@ -105,3 +109,13 @@ variables.octogenarians = query("
 ```
 
 We believe that this syntax is easy to remember, terse, and just as intuitive as the `<cfquery>` tag. There is no need to call `execute()`, and the result is always returned.
+
+## Syntax Changes
+
+### Line breaks without a comma
+
+A comma to mark the end of a line should be made optional. A line break would be designated by either a comma or a carraige return.
+
+### Declare multiple variables with one var keyword. 
+
+Just like in JavaScript add the ability to define multiple variables with one var keyword.
